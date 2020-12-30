@@ -35,5 +35,18 @@ namespace Agencias
                 lstAgencias.Items.Add(agencia);
             }
         }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            var confirmacao=MessageBox.Show("Você deseja realmente excluir essa buceta?","Confirmação",MessageBoxButton.YesNo);
+            if (confirmacao == MessageBoxResult.Yes)
+            {
+
+            }
+            else 
+            { 
+            
+            }
+        }
     }
 }

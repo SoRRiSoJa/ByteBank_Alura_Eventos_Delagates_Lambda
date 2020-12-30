@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Canvas x:Name="container">
-        
+
         <StackPanel Canvas.Top="15" Canvas.Left="400">
             <TextBlock FontWeight="Bold">Número</TextBlock>
             <TextBlock x:Name="txtNumero" >Número</TextBlock>
@@ -20,5 +20,7 @@
             <TextBlock FontWeight="Bold">Endereço</TextBlock>
             <TextBlock x:Name="txtEndereco">Endereço</TextBlock>
         </StackPanel>
+        <Button Name="btnExcluir" Content="Excluir" Canvas.Left="661" Canvas.Top="373" Width="100" RenderTransformOrigin="0.538,0.723" Click="btnExcluir_Click" />
+        <Button Content="Button" Canvas.Left="541" Canvas.Top="373" Width="100"/>
     </Canvas>
 </Window>
