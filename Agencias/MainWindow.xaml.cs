@@ -1,6 +1,8 @@
-﻿using Agencias.Data;
+﻿using Agencias.Components;
+using Agencias.Data;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Agencias
 {
@@ -10,14 +12,22 @@ namespace Agencias
     public partial class MainWindow : Window
     {
         private readonly Context _context = new Context();
+        private readonly AgenciasListBox lstAgencias;
         public MainWindow()
         {
+            this.lstAgencias = new AgenciasListBox(this);
             InitializeComponent();
             AtualizarControles();
         }
 
         private void AtualizarControles()
         {
+            lstAgencias.Width = 380;
+            lstAgencias.Height = 380;
+            Canvas.SetTop (lstAgencias, 15);
+            Canvas.SetLeft (lstAgencias, 15);
+
+            container.Children.Add(lstAgencias);
             lstAgencias.Items.Clear();
             var agencias = _context.Agencia.ToList();
             foreach (var agencia in agencias)
