@@ -20,7 +20,7 @@
             <TextBlock FontWeight="Bold">Endereço</TextBlock>
             <TextBlock x:Name="txtEndereco">Endereço</TextBlock>
         </StackPanel>
-        <Button Name="btnExcluir" Content="Excluir" Canvas.Left="661" Canvas.Top="373" Width="100" RenderTransformOrigin="0.538,0.723" Click="btnExcluir_Click" />
-        <Button Content="Button" Canvas.Left="541" Canvas.Top="373" Width="100"/>
+        <Button Name="btnExcluir" Content="Excluir" Canvas.Left="675" Canvas.Top="380" Width="100" RenderTransformOrigin="0.538,0.723" Click="btnExcluir_Click" />
+        <Button Name="btnEditar" Content="Editar" Canvas.Left="565" Canvas.Top="380" Width="100" Click="btnEditar_Click"/>
     </Canvas>
 </Window>
