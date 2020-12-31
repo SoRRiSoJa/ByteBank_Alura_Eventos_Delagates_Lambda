@@ -19,8 +19,8 @@
             <TextBlock FontWeight="Bold">Endereço</TextBlock>
             <TextBox x:Name="txtEndereco">Endereço</TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                <Button Name="btnSalvar" Content="OK" Canvas.Left="685" Canvas.Top="380" Width="100" Margin="15,0" Padding="5" RenderTransformOrigin="0.5,0.5" Click="btnSalvar_Click" />
-                <Button Name="btnCalcelar" Content="Cancelar" Canvas.Left="575" Canvas.Top="380" Width="100" Padding="5" Click="btnCalcelar_Click" />
+                <Button Name="btnSalvar" Content="OK" Canvas.Left="685" Canvas.Top="380" Width="100" Margin="15,0" Padding="5" RenderTransformOrigin="0.5,0.5" />
+                <Button Name="btnCalcelar" Content="Cancelar" Canvas.Left="575" Canvas.Top="380" Width="100" Padding="5"  />
             </StackPanel>
         </StackPanel>
         

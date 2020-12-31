@@ -23,9 +23,8 @@ namespace Agencias.View
         {
             InitializeComponent();
             this._agencia = agencia?? throw new ArgumentNullException(nameof(agencia));
-            UpdateTextFields();
             UpdateControls();
-
+            UpdateTextFields();
         }
         private void UpdateTextFields() 
         {
@@ -37,19 +36,34 @@ namespace Agencias.View
         }
         private void UpdateControls() 
         {
-            //var salvarkEventHandler = (RoutedEventHandler) btnSalvar_Click + CloseWindow;
-            //var cancelarEventHandler = (RoutedEventHandler) btnCalcelar_Click + CloseWindow;
+            
+            RoutedEventHandler dialogResultTrue = ( o, e)=>
+                DialogResult = true;
+            
+            RoutedEventHandler dialogResultFalse =  ( o,  e)=>
+                DialogResult = false;
+            
+            
+            var salvarkEventHandler = dialogResultTrue + CloseWindow;
+            var cancelarEventHandler = dialogResultFalse + CloseWindow;
+            
+            btnSalvar.Click += salvarkEventHandler;
+            btnCalcelar.Click += cancelarEventHandler;
+            
+            txtNumero.TextChanged += ValidateNullField;
+            txtNome.TextChanged += ValidateNullField;
+            txtEndereco.TextChanged+= ValidateNullField;
+            txtDescricao.TextChanged += ValidateNullField;
+            txtTelefone.TextChanged+= ValidateNullField;
 
-            btnSalvar.Click += new RoutedEventHandler(CloseWindow);
-            btnCalcelar.Click += new RoutedEventHandler(CloseWindow);
         }
-        private void btnSalvar_Click(object sender, RoutedEventArgs e)=>
-            DialogResult = true;
-        
 
-        private void btnCalcelar_Click(object sender, RoutedEventArgs e)=>
-            DialogResult = false;
-        
+        private void ValidateNullField(object sender, EventArgs e) 
+        {
+            var txt = sender as TextBox;
+            txt.Background = (String.IsNullOrEmpty(txt.Text)) ? new SolidColorBrush(Colors.OrangeRed) : txt.Background = new SolidColorBrush(Colors.White);
+        }
+
         private void CloseWindow(object sender, RoutedEventArgs e) =>
             Close();
         
