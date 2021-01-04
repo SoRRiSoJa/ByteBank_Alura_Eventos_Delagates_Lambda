@@ -27,13 +27,9 @@ namespace Agencias.View
             UpdateControls();
             UpdateTextFields();
             //--
-            ValidateNullField(txtNumero, EventArgs.Empty);
-            ValidateOnlyNumberField(txtNumero, EventArgs.Empty);
-            //--
-            ValidateNullField(txtNome, EventArgs.Empty);
-            ValidateNullField(txtEndereco, EventArgs.Empty);
-            ValidateNullField(txtDescricao, EventArgs.Empty);
-            ValidateNullField(txtTelefone, EventArgs.Empty);
+            //ValidateOnlyNumberField(txtNumero, EventArgs.Empty);
+            
+            
 
 
         }
@@ -61,23 +57,21 @@ namespace Agencias.View
             btnSalvar.Click += salvarkEventHandler;
             btnCalcelar.Click += cancelarEventHandler;
             
-            txtNumero.TextChanged += ValidateNullField;
-            txtNumero.TextChanged += ValidateOnlyNumberField;
+            txtNumero.Validacao += ValidateNullField;
+            txtNumero.Validacao += ValidateOnlyNumberField;
             
-            txtNome.TextChanged += ValidateNullField;
-            txtEndereco.TextChanged+= ValidateNullField;
-            txtDescricao.TextChanged += ValidateNullField;
-            txtTelefone.TextChanged+= ValidateNullField;
+            //txtNome.Validacao += ValidateNullField;
+            //txtEndereco.Validacao += ValidateNullField;
+            //txtDescricao.Validacao += ValidateNullField;
+            //txtTelefone.Validacao += ValidateNullField;
         }
-        private void ValidateOnlyNumberField(object sender, EventArgs e) 
+        private bool ValidateOnlyNumberField(string texto) 
         {
-            var txt = sender as TextBox;
-            txt.Background = (txt.Text.All(char.IsDigit)) ? new SolidColorBrush(Colors.White) : txt.Background = new SolidColorBrush(Colors.OrangeRed);
+            return texto.All(Char.IsDigit);
         }
-        private void ValidateNullField(object sender, EventArgs e) 
+        private bool ValidateNullField(string texto) 
         {
-            var txt = sender as TextBox;
-            txt.Background = (String.IsNullOrEmpty(txt.Text)) ? new SolidColorBrush(Colors.OrangeRed) : txt.Background = new SolidColorBrush(Colors.White);
+            return String.IsNullOrEmpty(texto);
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e) =>
